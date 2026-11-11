@@ -146,12 +146,20 @@
       "id": 20
     },
     {
-      "title": "otro",
-      "genre": "Platform",
+      "id": 21,
+      "title": "sdfasdfasdfasdfasdfasd",
+      "genre": "Sports",
+      "platform": "XBox",
+      "price": 3,
+      "stock": 10
+    },
+    {
+      "title": "awesdfasdfasdfa",
+      "genre": "Racing",
       "platform": "PlayStation",
-      "price": 100,
-      "stock": 24,
-      "id": 21
+      "price": 5,
+      "stock": 14,
+      "id": 22
     }
   ]
 }

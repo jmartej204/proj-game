@@ -1,40 +1,33 @@
-<form #gameForm="ngForm" (ngSubmit)="onSaveGame(gameForm)" novalidate>
+<form [formGroup]="gameFormGroup" #gameForm="ngForm" (ngSubmit)="onSaveGame(gameForm)" novalidate>
  <div>
   <label for="titleId">Título</label>
   <input id="titleId"
           type="text"
-          name="title"
-          [(ngModel)]="this.game.title"
 
-          required
-          minlength="3"
-          #title="ngModel"
+          formControlName="title"
           />
 
-@if ( title.invalid && (  title.touched || title.dirty)) {
+  @if ( title.invalid && (  title.touched || title.dirty)) {
 
-    @if ( title.errors?.['required']) {
+      @if ( title.hasError('required')) {
 
-      <p>Título obligatorio...</p>
+        <p>Título obligatorio...</p>
 
-    }
+      }
 
-    @if ( title.errors?.['minlength']) {
+      @if ( title.hasError('minlength')) {
 
-      <p>Longitud mínima 3...</p>
+        <p>Longitud mínima 3...</p>
 
-    }
-}
+      }
+  }
 </div>
 
 <div>
 <label for="genreId">Género: </label>
 <select id="genreId"
-        name="genre"
-        [(ngModel)]="this.game.genre"
-        required
-        #genre="ngModel" >
-
+        formControlName="genre"
+        >
     <option value="">Selecciona un género</option>
     <option value="Platform">Platform</option>
     <option value="Strategy">Strategy</option>
@@ -54,10 +47,8 @@
 <div>
 <label for="platformId">Plataformma: </label>
 <select id="platformId"
-        name="platform"
-        [(ngModel)]="this.game.platform"
-        required
-        #platform="ngModel" >
+        formControlName="platform"
+        >
 
     <option value="">Selecciona plataforma</option>
     <option value="PC">PC</option>
@@ -65,9 +56,9 @@
     <option value="XBox">XBox</option>
 </select>
 
-@if ( platform.invalid && ( platform.dirty || platform.touched || gameForm.submitted) ) {
-  <p> Plataforma obligatoria</p>
-}
+  @if ( platform.invalid && ( platform.dirty || platform.touched || gameForm.submitted) ) {
+    <p> Plataforma obligatoria</p>
+  }
 </div>
 
 <div>
@@ -75,21 +66,16 @@
   <input
       id="priceId"
       type="number"
-      name="price"
-      [(ngModel)]="game.price"
-      required
-      min="0.01"
-      max="100"
-      #price="ngModel"
+      formControlName="price"
       />
 
   @if ( price.invalid && (  price.touched || price.dirty || gameForm.submitted ) ) {
 
-    @if ( price.errors?.['required']) {
+    @if ( price.hasError('required')) {
       <p> Precio es obligatorio...</p>
     }
 
-    @if ( price.errors?.['min'] || price.errors?.['max']) {
+    @if ( price.hasError('min') || price.hasError('max')) {
       <p> Precio fuera de rango permitido [0.01-100]</p>
     }
 
@@ -104,20 +90,15 @@
   [class.invalid-control]="invalidStock"
   id="stockId"
   type="number"
-  name="stock"
-  [(ngModel)]="game.stock"
-  required
-  min="0"
-  max="999"
-  #stock="ngModel"
+  formControlName="stock"
 >
   @if ( invalidStock ) {
 
-    @if ( stock.errors?.['required']) {
+    @if ( stock.hasError('required')) {
       <p> Precio es obligatorio...</p>
     }
 
-    @if ( stock.errors?.['min'] || stock.errors?.['max']) {
+    @if (  stock.hasError('min') ||  stock.hasError('max')) {
       <p> Precio fuera de rango permitido [0-999]</p>
     }
 

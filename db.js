@@ -6,12 +6,12 @@ const NUM_GAMES = 30;
 const NUM_CLIENTS = 12;
 
 const GENRES = [
-  'Acción', 'Aventura', 'RPG', 'Estrategia',
-  'Simulación', 'Deportes', 'Carreras', 'Puzles'
+  'Action', 'Adventure', 'RPG', 'Strategy',
+  'Simulation', 'Sports', 'Racing', 'Puzles'
 ];
 
 const PLATFORMS = [
-  'PC', 'PlayStation 5', 'Xbox Series X|S', 'Nintendo Switch'
+  'PC', 'PlayStation', 'Xbox'
 ];
 
 const PREFIXES = ['Crónicas', 'Leyendas', 'Sombras', 'Secretos', 'Guardianes', 'Ecos'];
