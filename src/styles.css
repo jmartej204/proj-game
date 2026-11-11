@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+/* Highlight invalid fields only after the user blurs/touches them */
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 1px solid #d93025;
+  background-color: #fff8f7;
+}
+
+/* Optional: Keep a strong focus ring for accessibility */
+input.ng-invalid.ng-touched:focus,
+select.ng-invalid.ng-touched:focus,
+textarea.ng-invalid.ng-touched:focus {
+  outline: 2px solid rgba(217, 48, 37, 0.25);
+  outline-offset: 1px;
+}

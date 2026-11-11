@@ -1,0 +1,135 @@
+<form #gameForm="ngForm" (ngSubmit)="onSaveGame(gameForm)" novalidate>
+ <div>
+  <label for="titleId">Título</label>
+  <input id="titleId"
+          type="text"
+          name="title"
+          [(ngModel)]="this.game.title"
+
+          required
+          minlength="3"
+          #title="ngModel"
+          />
+
+@if ( title.invalid && (  title.touched || title.dirty)) {
+
+    @if ( title.errors?.['required']) {
+
+      <p>Título obligatorio...</p>
+
+    }
+
+    @if ( title.errors?.['minlength']) {
+
+      <p>Longitud mínima 3...</p>
+
+    }
+}
+</div>
+
+<div>
+<label for="genreId">Género: </label>
+<select id="genreId"
+        name="genre"
+        [(ngModel)]="this.game.genre"
+        required
+        #genre="ngModel" >
+
+    <option value="">Selecciona un género</option>
+    <option value="Platform">Platform</option>
+    <option value="Strategy">Strategy</option>
+    <option value="Racing">Racing</option>
+    <option value="RPG">RPG</option>
+    <option value="Action">Action</option>
+    <option value="Adventure">Adventure</option>
+    <option value="Simulation">Simulation</option>
+    <option value="Sports">Sports</option>
+</select>
+
+@if ( genre.invalid && ( genre.dirty || genre.touched || gameForm.submitted) ) {
+  <p> Género obligatorio</p>
+}
+</div>
+
+<div>
+<label for="platformId">Plataformma: </label>
+<select id="platformId"
+        name="platform"
+        [(ngModel)]="this.game.platform"
+        required
+        #platform="ngModel" >
+
+    <option value="">Selecciona plataforma</option>
+    <option value="PC">PC</option>
+    <option value="PlayStation">PlayStation</option>
+    <option value="XBox">XBox</option>
+</select>
+
+@if ( platform.invalid && ( platform.dirty || platform.touched || gameForm.submitted) ) {
+  <p> Plataforma obligatoria</p>
+}
+</div>
+
+<div>
+  <label for="priceId">Precio: </label>
+  <input
+      id="priceId"
+      type="number"
+      name="price"
+      [(ngModel)]="game.price"
+      required
+      min="0.01"
+      max="100"
+      #price="ngModel"
+      />
+
+  @if ( price.invalid && (  price.touched || price.dirty || gameForm.submitted ) ) {
+
+    @if ( price.errors?.['required']) {
+      <p> Precio es obligatorio...</p>
+    }
+
+    @if ( price.errors?.['min'] || price.errors?.['max']) {
+      <p> Precio fuera de rango permitido [0.01-100]</p>
+    }
+
+  }
+
+</div>
+
+<div>
+  <label for="stockId">Stock: </label>
+  @let invalidStock = stock.invalid && ( stock.touched || stock.dirty || gameForm.submitted);
+<input
+  [class.invalid-control]="invalidStock"
+  id="stockId"
+  type="number"
+  name="stock"
+  [(ngModel)]="game.stock"
+  required
+  min="0"
+  max="999"
+  #stock="ngModel"
+>
+  @if ( invalidStock ) {
+
+    @if ( stock.errors?.['required']) {
+      <p> Precio es obligatorio...</p>
+    }
+
+    @if ( stock.errors?.['min'] || stock.errors?.['max']) {
+      <p> Precio fuera de rango permitido [0-999]</p>
+    }
+
+  }
+
+</div>
+
+<button>Guardar</button>
+
+    <p>Válido: {{ gameForm.valid }}</p>
+    <p>Modificado: {{ gameForm.dirty }}</p>
+
+</form>
+
+{{ this.game | json }}
