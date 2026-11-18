@@ -46,15 +46,18 @@ export class CrudComponent implements OnChanges{
     console.log(form.value);
 
     if (this.edit) {
+    //if (this.game.id) {}
 
       this.gameService.update(this.game).subscribe( gameUpdated => {
           console.log(`Game updated: ${gameUpdated}`);
           form.resetForm();
+          //delete this.game.id;
+          this.edit = false;
           this.actualizaGames.emit(gameUpdated);
       } );
 
     } else {
-
+      //CREAR - POST
       this.gameService.create(this.game).subscribe( gameSaved => {
       console.log(`Game saved: ${gameSaved}`);
       form.resetForm();

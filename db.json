@@ -2,10 +2,11 @@
   "games": [
     {
       "id": 1,
-      "title": "Pixel Runner",
+      "title": "otrosefasd",
       "genre": "Platform",
-      "platform": "PC",
-      "price": 14.99
+      "platform": "PlayStation",
+      "price": 1,
+      "stock": 2
     },
     {
       "id": 2,
@@ -152,6 +153,62 @@
       "price": 100,
       "stock": 24,
       "id": 21
+    },
+    {
+      "title": "Nuevo",
+      "genre": "Action",
+      "platform": "XBox",
+      "price": 4.01,
+      "stock": 100,
+      "id": 22
+    },
+    {
+      "title": "Nuevo desde Postman",
+      "genre": "Platform",
+      "platform": "PC",
+      "price": 1.58,
+      "stock": 20,
+      "id": 23
+    },
+    {
+      "title": "Nuevo desde Postman",
+      "genre": "Platform",
+      "platform": "PC",
+      "price": 1.58,
+      "stock": 20,
+      "id": 24
+    },
+    {
+      "title": "Nuevo desde Postman",
+      "genre": "Platform",
+      "platform": "PC",
+      "price": 1.58,
+      "stock": 20,
+      "id": 25
+    },
+    {
+      "title": "Actualizado desde Postman",
+      "genre": "Platform",
+      "platform": "PC",
+      "price": 10,
+      "stock": 200,
+      "id": 26
+    },
+    {
+      "title": "nuevo sin id",
+      "genre": "Simulation",
+      "platform": "PC",
+      "price": 1,
+      "stock": 100,
+      "id": 27
+    },
+    {
+      "title": "limpio",
+      "genre": "Platform",
+      "platform": "PC",
+      "price": 1,
+      "stock": 100,
+      "id": 28
     }
   ]
 }
